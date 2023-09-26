@@ -1,4 +1,18 @@
-.Page{
-    background-color: blue;
+#Page{
     
+}
+#body{
+    background-color: lightgray;
+    min-height: 100px;
+
+}
+#Header{
+    background-color: blue;
+    min-height: 100px;
+    margin: 0px;
+}
+#Footer{
+    background-color: red;
+    min-height: 50px;
+    margin: 0px;
 }
