@@ -15,21 +15,18 @@
 
 .Header{
     display: flex;
-    background-color: #0E579C;
+    background-color: white;
     min-height: 75px;
     width: 100%;
     margin: 0px;
-    flex-direction: row;
-    align-items: center;
 }
 
 
 
 .menu-head{
     display: flex;
-    align-self: center;
-    flex-direction: row;
     align-self: right;
+    flex-direction: row;
     position: relative;
     margin: auto;
 }
@@ -38,8 +35,9 @@
     display: flex;
     align-self: center;
     margin: 20px;
-    color: white;
-    font-size: medium;
+    color: #0E579C;
+    font-size: sma;
+    font-weight: bold;
 }
 
 #logo-head{
@@ -60,7 +58,6 @@
     float: left;
     margin: 10px;
     
-    position: absolute;
 
 }
 .footer{
