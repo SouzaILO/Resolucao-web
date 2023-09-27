@@ -32,7 +32,6 @@
     align-self: right;
     position: relative;
     margin: auto;
-    flex-wrap: wrap;
 }
 
 .menu-item{
@@ -40,6 +39,7 @@
     align-self: center;
     margin: 20px;
     color: white;
+    font-size: medium;
 }
 
 #logo-head{
