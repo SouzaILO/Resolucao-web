@@ -10,6 +10,8 @@
     }
 });*/
 
+
+
 var veri = 1;
 function menu(){
     var menu = document.getElementById('menu-retratil');
@@ -24,5 +26,10 @@ function menu(){
 
 function unlog(){
     window.location.href = "../home.html";
+
+}
+
+function gohome(){
+    window.location.href = "../paginas/inicial.html";
 
 }
