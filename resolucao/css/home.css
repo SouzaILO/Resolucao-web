@@ -48,7 +48,12 @@ body {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     background-color: rgb(230, 228, 228);
 }
+ 
 
+#btn-esq-senha:hover{
+    text-decoration: underline;
+
+}
 
 #btn-esq-senha{
     background-color: rgb(230, 228, 228);
@@ -58,12 +63,6 @@ body {
     font-weight: bold;
     margin-bottom: 10px;
 }
-
-#btn-esq-senha:hover{
-    text-decoration: underline;
-
-}
-
 #btn-entrar-login{
     border: 0.5px solid black;
     border-radius: 15px;
