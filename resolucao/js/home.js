@@ -8,6 +8,7 @@ function login(){
         window.location.href = "../resolucao/paginas/inicial.html";
         console.log("Login realizado com sucesso!");
     }else{
+        document.getElementById("erro-login").innerText = "Usuario ou senha invalidas!";
         console.log("Usuário ou senha inválidos!");
     }
 }
