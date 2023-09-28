@@ -26,6 +26,17 @@ body {
     width: 100%;
     margin: auto;
 }
+.footer{
+    min-height: 50px;
+    margin: auto;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #9dadfa;
+    color: white;
+    text-align: center;
+}
 
 #login-box{
 
@@ -103,7 +114,7 @@ body {
     
 }
 
-#Usuario{
+#usuario{
     margin-bottom: 10px;
     border-radius: 35px;
     border: 0.5px solid black;
@@ -138,14 +149,3 @@ body {
 
 }
 
-.footer{
-    min-height: 50px;
-    margin: auto;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #9dadfa;
-    color: white;
-    text-align: center;
-}
