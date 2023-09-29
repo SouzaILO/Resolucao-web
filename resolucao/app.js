@@ -26,17 +26,17 @@ app.get('/inicial.html', async (req,res) => {
 
 app.use(session({
 	secret: 'secret',
-	resave: true,
+	resave: true, 
 	saveUninitialized: true
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'static')));
-  
+   
 
 
-app.listen(3002, () => { 
-    console.log('Servidor rodando na porta 3002 : http://localhost:3002');
+app.listen(3000, () => { 
+    console.log('Servidor rodando na porta 3000 : http://localhost:3000');
 });  
 
 
