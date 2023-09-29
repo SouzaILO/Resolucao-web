@@ -5,7 +5,7 @@ function login(){
     var senha = document.getElementById("senha").value;
 
     if(usuario == "admin" && senha == "admin"){
-        window.location.href = "../resolucao/paginas/inicial.html";
+        window.location.href = "inicial.html";
         console.log("Login realizado com sucesso!");
     }else{
         document.getElementById("erro-login").innerText = "Usuario ou senha invalidas!";

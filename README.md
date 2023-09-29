@@ -10,7 +10,12 @@ rodar projeto
 
 ### npm install express
 
-maquina
+N consegui usar nodemon browsersynch funciona melhor e mais facil 
 ### npm install -g nodemon
-
 ### npm install --save -dev nodemon
+
+
+-----------
+Banco de dados
+### npm install --save sequelize
+### npm install --save mysql2

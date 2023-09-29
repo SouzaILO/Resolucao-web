@@ -1,5 +1,5 @@
 browser-sync start --server 'app' --files 'app'
 
-npm init
-
-npm install express
+npx forever -w app.js
+cd C:\Windows\System32
+taskkill /F /IM node.exe
