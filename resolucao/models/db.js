@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 
+
 const condb = new Sequelize("resolucao", "root" , "",{
     host: "localhost",
     dialect: "mysql"
@@ -12,5 +13,7 @@ condb.authenticate().then(function(){
 });
 
 module.exports = condb; 
-  
+
+
+
 
