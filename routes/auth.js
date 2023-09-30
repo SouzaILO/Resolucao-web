@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
-const authController = require('../controllers/auth');
+const authController = require('../controllers/auth'); 
 
-router.get('/login',  authController.login);
+router.post('/login',  authController.login);
     
 
 module.exports = router;

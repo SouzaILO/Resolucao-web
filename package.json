@@ -1,18 +1,24 @@
 {
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "debug": "^4.3.4",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "express-flash": "^0.0.2",
     "express-session": "^1.17.3",
     "hbs": "^4.2.0",
+    "jsonwebtoken": "^9.0.2",
     "mysql": "^2.18.1",
     "mysql2": "^3.6.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
     "sequelize": "^6.33.0",
     "upper-case": "^2.0.2"
   },
   "nodemonConfig": {
-    "ext": "js,json,hbs,html,css"
+    "ext": "js,json,hbs,html,css,ejs"
   },
   "name": "resolucao-web",
   "description": "Aprendendo web dev",

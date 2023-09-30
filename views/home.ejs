@@ -17,17 +17,19 @@
             <div id="logo">   
             </div>
         </div>
-        <form action="/auth/login" method="get">
+        <form action="/auth/login" method="post">
         <div class="=login-box" id="login-box">
             <img id="logo-box"src="../img/resolucaologo.png" alt="Logo" onclick="">
              <div class="login-input">
                 <input type="text" name="usuario" id="usuario" placeholder="Usuario" required>
                 <input type="password" name="senha" id="senha" placeholder="Senha" required>
-                <span id="erro-login"></span>
+                <%if(typeof message != "undefined" && message){ %>
+                    <span id="erro-login"><%= message %></span>
+                <% } %>
             </div>
             <div class="login-button">
-                <button type="submit" id="btn-esq-senha">Esqueci a senha</button>
-                <button type="submit" id="btn-entrar-login" onclick="">Entrar</button>
+                <button id="btn-esq-senha">Esqueci a senha</button>
+                <button type="submit" id="btn-entrar-login">Entrar</button>
             </div>
 
         </div>
