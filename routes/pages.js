@@ -6,9 +6,12 @@ router.get('/', (req, res) => {
     res.render('index');
 });
 
-router.get('/home', (req, res) => {
+
+
+router.get('/home', function(req, res, next){
     res.render('home');
 });
+
 
 router.get('/inicial', (req, res) => {
     res.render('inicial');

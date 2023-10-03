@@ -1,26 +1,18 @@
+const express = require('express');
+const flash = require('express-flash');
+const session = require('express-session');
+const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy
 
-function initialize(passport , getUserByUsername){
 
-    const authUser = async (usuario, senha, done) => {
-        const user = getUserByUsername(usuario)
 
-        if (user == null){
-            return done(null, false, { message: 'Esse usuário não existe'})
-        }
-        
-        if (await bcrypt.compare(senha, user.senha)){
-            return done(null, user)
-        } else {
-            return done(null, false, { message: 'Senha incorreta'})
-        }
-        
+function initialize(passport,req , res){
 
-    }
-    passport.use(new LocalStrategy({ usernameField: 'usuario' }),
-    authUser)
-    passport.serializeUser((user, done) => {  })
-    passport.deserializeUser((id, done) => {  })
 
 }
+
+
+
+
+
 module.exports = initialize

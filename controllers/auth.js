@@ -1,35 +1,38 @@
 var sqlConnection = require('../db.js');
 
-exports.login = (req, res, next) => {
+exports.login = (req, res, done) => {
     
     const { usuario, senha} = req.body;
-    sqlConnection("SELECT senha FROM usuarios WHERE usuario = ?", [usuario,senha], async (error, results) => {
+    sqlConnection("SELECT * FROM usuarios WHERE usuario = ?", [usuario], async (error, results) => {
         if (error !== null) {
             console.log("[MYSQL] Error connecting to mysql:" + err+'\n');
-            return res.render('home',
-                {
-                    message: 'Erro ao se conectar ao banco de dados'
-                });                
+            return done(err, false, {message : 'Erro ao se conectar ao banco de dados'});                
         }
 
         if (results.length == 0) {
-            return res.render('home', 
-                {
-                    message: 'Usuário ou senha incorretos'
-                });
+            return done(null, false, {message : 'Usuário ou senha incorretos'});
         }
-        var pass = results[0].senha;
+        var user = [];
+        
+    
+        results.map(val => {
+            user[0]=val.ID;
+            user[1]=val.Usuario;
+            user[2]=val.Senha;
+            user[3]=val.Email;
+        });
 
-        if(pass == senha){
-            return res.render('inicial', 
+    
+        console.log("meio" +user);
+        if(senha == user[2]){
+            return done(null, user[1]);
+            //initializePassport(user,passport);
+            /*res.render('inicial', 
                 {
                     message: 'Bem vindo '+usuario
-                });
+                });*/
         }else{
-            return res.render('home', 
-                {
-                    message: 'Usuário ou senha incorretos'
-                });
+            return done(null, false, {message : 'Usuário ou senha incorretos'});
         }
     }); 
     
