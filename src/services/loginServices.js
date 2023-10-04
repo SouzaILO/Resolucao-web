@@ -1,13 +1,14 @@
 import sqlConnection from "../db/db";
 import bcrypt from "bcryptjs";
 
-let handleLogin = (usuario, password) => {
+let handleLogin = (usuario, senha) => {
     return new Promise(async (resolve, reject) => {
         //check usuario is exist or not
+        console.log(usuario + "service " + senha);
         let user = await findUserByEmail(usuario);
         if (user) {
             //compare password
-            await bcrypt.compare(password, user.password).then((isMatch) => {
+            await bcrypt.compare(senha, user.senha).then((isMatch) => {
                 if (isMatch) {
                     resolve(true);
                 } else {
@@ -30,8 +31,8 @@ let findUserByEmail = (usuario) => {
                     if (err) {
                         reject(err)
                     }
-                    let user = rows[0];
-                    resolve(user);
+                    let usuario = rows[0];
+                    resolve(usuario);
                 }
             );
             
@@ -45,7 +46,7 @@ let findUserById = (id) => {
     return new Promise((resolve, reject) => {
         try {
             sqlConnection(
-                ' SELECT * FROM `users` WHERE `id` = ?  ', id,
+                ' SELECT * FROM `usuarios` WHERE `id` = ?  ', id,
                 function(err, rows) {
                     if (err) {
                         reject(err)
@@ -54,17 +55,19 @@ let findUserById = (id) => {
                     resolve(user);
                 }
             );
-            DBConnection.end();
+            
         } catch (err) {
             reject(err);
         }
     });
 };
 
-let comparePassword = (password, userObject) => {
+let comparePassword = (senha, userObject) => {
     return new Promise(async (resolve, reject) => {
         try {
-            await bcrypt.compare(password, userObject.password).then((isMatch) => {
+            //console.log(senha + "service " , userObject.Senha);
+            await bcrypt.compare(senha, userObject.Senha).then((isMatch) => {
+                
                 if (isMatch) {
                     resolve(true);
                 } else {

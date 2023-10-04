@@ -20,7 +20,7 @@ let handleLogin = async (req, res) => {
     }
 
     try {
-        await loginService.handleLogin(req.body.email, req.body.password);
+        await loginService.handleLogin(req.body.usuario, req.body.senha);
         return res.redirect("/");
     } catch (err) {
         req.flash("errors", err);
@@ -37,7 +37,7 @@ let checkLoggedIn = (req, res, next) => {
 
 let checkLoggedOut = (req, res, next) => {
     if (req.isAuthenticated()) {
-        return res.redirect("/");
+        return res.redirect("/inicial");
     }
     next();
 };

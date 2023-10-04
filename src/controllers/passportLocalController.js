@@ -10,14 +10,18 @@ let initPassportLocal = () => {
             passwordField: 'senha',
             passReqToCallback: true
         },
-        async (req, usuario, password, done) => {
+        async (req, usuario, senha, done) => {
             try {
+                
                 await loginService.findUserByEmail(usuario).then(async (user) => {
+                    
                     if (!user) {
-                        return done(null, false, req.flash("errors", `This user email "${usuario}" doesn't exist`));
+                        return done(null, false, req.flash("errors", `This user usuario "${usuario}" doesn't exist`));
                     }
                     if (user) {
-                        let match = await loginService.comparePassword(password, user);
+                        //console.log("user" , user);
+                        let match = await loginService.comparePassword(senha, user);
+                        
                         if (match === true) {
                             return done(null, user, null)
                         } else {
@@ -35,7 +39,7 @@ let initPassportLocal = () => {
 };
 
 passport.serializeUser((user, done) => {
-    done(null, user.id);
+    done(null, user.ID);
 });
 
 passport.deserializeUser((id, done) => {
