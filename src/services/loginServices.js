@@ -65,7 +65,7 @@ let findUserById = (id) => {
 let comparePassword = (senha, userObject) => {
     return new Promise(async (resolve, reject) => {
         try {
-            //console.log(senha + "service " , userObject.Senha);
+            
             await bcrypt.compare(senha, userObject.Senha).then((isMatch) => {
                 
                 if (isMatch) {

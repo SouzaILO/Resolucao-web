@@ -39,7 +39,7 @@ var sqlConnection = function sqlConnection(sql, values, next) {
             console.log("[MYSQL] Error connecting to mysql:" + err+'\n');
         }
     });
-
+    
     connection.query(sql, values, function(err) {
 
         connection.end(); // close the connection

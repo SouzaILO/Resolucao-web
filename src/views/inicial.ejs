@@ -27,15 +27,18 @@
             <div></div>
         </div>
         <nav class="menu-retratil" id="menu-retratil">
+            <form method="post" action="/alunos">
+                
         <ul>
             
-            <li><%= user.Usuario%></li>
+            <li ><%= user.Usuario%></li>
             
             <li>Agenda</li>
-            <li>Alunos</li>
+            <button class="menu-retratil-items" type="submit"><li>Alunos</li></button>
             <li>Professores</li>
             <li>Conta</li>
         </ul>
+        </form>
         </nav>
         <div class="footer">
         </div>
