@@ -1,8 +1,9 @@
 import express from 'express';
 import authentication from './authentication';
-import users from './users';
-import views from './views';
+import users from './users.router';
+import views from './views.router';
 import alunos from './alunos.router';
+import professores from './professores.router';
 
 const router = express.Router();
 
@@ -16,6 +17,8 @@ export default  (): express.Router => {
 
     alunos(router);
 
+    professores(router);
+    
 
     return router;
 }

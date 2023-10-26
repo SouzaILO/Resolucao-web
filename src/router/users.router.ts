@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllUsers,deleteUser , updateUsername } from "../controllers/users";
+import { getAllUsers,deleteUser , updateUsername } from "../controllers/users.controller";
 import { isAuthenticated, isAuthorized } from "../middlewares";
 import { update } from "lodash";
 

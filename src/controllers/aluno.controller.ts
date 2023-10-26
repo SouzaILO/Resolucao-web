@@ -1,5 +1,5 @@
 import express from "express";
-import { createAluno,getAlunos,getAlunoByMatricula,deleteAlunoByMatricula } from "../db/alunos";
+import { createAluno,getAlunos,getAlunoByMatricula,deleteAlunoByMatricula } from "../db/alunos.db";
 import { json } from "body-parser";
 
 
@@ -20,7 +20,7 @@ export const getAllAlunos = async (req: express.Request, res: express.Response) 
 
     }catch(error){
         console.log(error)
-        return res.sendStatus(400);
+        return res.sendStatus(400); 
 
     }
 
@@ -47,7 +47,7 @@ const Matricula = () => {
     if(!Matriculaexiste){
         Matricula()
     }
-    return random
+    return random 
 }
 
 

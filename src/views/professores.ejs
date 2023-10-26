@@ -47,12 +47,12 @@
 
         </nav>
         <div class="alunos">
-            <button id="alunos-add-btn">Adicionar Aluno</button>
+            <button id="alunos-add-btn">Adicionar</button>
                 <dialog id="pop-add-aluno">
                     
                         <div class="form-aluno">
                             <div class="form-add-aluno">
-                            <form id="formAluno" method="post" action="/aluno/adicionar">
+                            <form id="formAluno" method="post" action="/professor/adicionar">
                                 <label class="form-aluno-lbl" >
                                     Nome: <input type="text" class="form-aluno-inpt"  placeholder="nome" name="Nome" required>
                                 </label>
@@ -84,12 +84,12 @@
                                 
 
                                 <label class="form-aluno-lbl" >
-                                    Escola: <input type="text" class="form-aluno-inpt"  placeholder="Escola" name="Escola" required>
+                                    Conta Bancaria: <input type="text" class="form-aluno-inpt"  placeholder="Conta bancaria" name="ContaBancaria" required>
                                 </label>
                                 
 
                                 <label class="form-aluno-lbl" >
-                                    Idade: <input type="text" class="form-aluno-inpt"  placeholder="Idade" name="Idade" required>
+                                    Agencia Bancaria: <input type="text" class="form-aluno-inpt"  placeholder="AgenciaBancaria" name="AgenciaBancaria" required>
                                 </label>
                                 <div class="popup-btn-bar">
                                     <button id="add-aluno-close" type="button" onclick=" closeModal_add_aluno()">cancelar</button>
@@ -106,31 +106,31 @@
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">Matricula</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Email</th>
                             <th scope="col">endereco</th>
                             <th scope="col">cidade</th>
                             <th scope="col">CEP</th>
                             <th scope="col">Telefone</th>
-                            <th scope="col">Escola</th>
-                            <th scope="col">Idade</th>
+                            <th scope="col">Conta bancaria</th>
+                            <th scope="col">Agencia</th>
                         </tr>
                     </thead>
                     
                     <tbody>
-                        <% if(typeof alunos != "undefined" && alunos){ %>
-                        <% for(let i = 0; i < alunos.length; i++){ %>
-                        <tr onclick="openModal_edit_aluno(this)">
-                            <th scope="row"><%= alunos[i].Matricula %></th>
-                            <td><%= alunos[i].Nome %></td>
-                            <td><%= alunos[i].email %></td>
-                            <td><%= alunos[i].endereco %></td>
-                            <td><%= alunos[i].Cidade %></td>
-                            <td><%= alunos[i].CEP %></td>
-                            <td><%= alunos[i].Telefone %></td>
-                            <td><%= alunos[i].Escola %></td>
-                            <td><%= alunos[i].Idade %></td>
+                        <% if(typeof professor != "undefined" && professor){ %>
+                        <% for(let i = 0; i < professor.length; i++){ %>
+                        <tr onclick="openModal_edit_professor(this)">
+                            <th scope="row"><%= professor[i].ID %></th>
+                            <td><%= professor[i].Nome %></td>
+                            <td><%= professor[i].email %></td>
+                            <td><%= professor[i].endereco %></td>
+                            <td><%= professor[i].Cidade %></td>
+                            <td><%= professor[i].CEP %></td>
+                            <td><%= professor[i].Telefone %></td>
+                            <td><%= professor[i].ContaBancaria %></td>
+                            <td><%= professor[i].AgenciaBancaria %></td>
                         </tr>
                         <% } %>
                         <% } %>
@@ -140,15 +140,17 @@
                     
                         <div class="form-aluno">
                             <div class="form-add-aluno">
-                            <form id="formDelAluno" method="post" action="/aluno/DELETAR">
-                                <input id="input-Matricula-DEL" type="text" class="form-aluno-inpt" name="Matricula" hidden>
+                            <form id="formDelProfssor" method="post" action="/professor/DELETAR">
+                                <input id="input-ID-DEL" type="text" class="form-aluno-inpt" name="ID" hidden>
                             </form>
-                            <form id="formEditAluno" method="post" action="/aluno/editar">
+                            <form id="formEditAluno" method="post" action="/professor/editar">
 
                                 <label id="label-Matricula-Edit" class="form-aluno-lbl" >
-                                    Matricula:                                   
+                                    ID:                                   
                                 </label>
-                                <input id="input-Matricula-Edit" type="text" class="form-aluno-inpt" name="Matricula" hidden>
+
+                                <input id="input-ID-Edit" type="text" class="form-aluno-inpt" name="ID" hidden>
+
                                 <label class="form-aluno-lbl" >
                                     Nome: <input id="input-Nome-Edit" type="text" class="form-aluno-inpt"  placeholder="nome" name="Nome">
                                 </label>
@@ -179,17 +181,19 @@
                                 
 
                                 <label class="form-aluno-lbl" >
-                                    Escola: <input id="input-Escola-Edit" type="text" class="form-aluno-inpt"  placeholder="Escola" name="Escola">
+                                    Conta Bancaria: <input id="input-Escola-Edit" type="text" class="form-aluno-inpt"  placeholder="ContaBancaria" name="ContaBancaria">
                                 </label>
                                 
 
-                                <label class="form-aluno-lbl" >
-                                    Idade: <input id="input-Idade-Edit" type="text" class="form-aluno-inpt"  placeholder="Idade" name="Idade">
+                                <label class="form-aluno-lbl">
+                                    Agencia Bancaria: <input id="input-Idade-Edit" type="text" class="form-aluno-inpt"  placeholder="AgenciaBancaria" name="AgenciaBancaria">
                                 </label>
+
+
                                 <div class="popup-btn-bar">
-                                    <button id="add-aluno-close" type="button" onclick=" closeModal_edit_aluno()">cancelar</button>
+                                    <button id="add-aluno-close" type="button" onclick=" closeModal_edit_professor()">cancelar</button>
                                     <button id="add-aluno-send"  value="submit" >Salvar</button>
-                                    <button form="formDelAluno" id="add-aluno-send"  value="submit" >Deletar</button>
+                                    <button form="formDelProfssor" id="add-aluno-send"  value="submit" >Deletar</button>
                                 </div> 
                                 
                             </form>
@@ -212,6 +216,6 @@
 
 <footer>
 </footer>
-<script src="../js/aluno.js"></script>
+<script src="../js/professores.js"></script>
 <script src="../js/inicial.js"></script>
 </html>

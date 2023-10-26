@@ -1,5 +1,5 @@
 import express from "express";
-import { getUsers, deleteUserById, getUserById } from "../db/users";
+import { getUsers, deleteUserById, getUserById } from "../db/users.db";
 
 
 /*

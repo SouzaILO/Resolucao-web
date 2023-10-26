@@ -33,11 +33,15 @@
             <%if(typeof user.username != "undefined" && user.username){ %>
             <li ><%= user.username%></li>
             <% } %>
-            <li>Agenda</li>
+                <form  action="/agenda" method="post">
+                    <button class="menu-retratil-items" type="submit"><li>agenda</li></button>
+                </form>
                 <form  action="/alunos" method="post">
                     <button class="menu-retratil-items" type="submit"><li>Alunos</li></button>
                 </form>
-            <li>Professores</li>
+                <form  action="/professores" method="post">
+                    <button class="menu-retratil-items" type="submit"><li>Professores</li></button>
+                </form>
             <li>Conta</li>
         </ul>
         

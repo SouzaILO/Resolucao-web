@@ -1,5 +1,5 @@
 import express from "express";
-import { getUserByEmail, createUser,getUserByUs } from "../db/users";
+import { getUserByEmail, createUser,getUserByUs } from "../db/users.db";
 import {random, authentication} from "../helpers/index";
 import { get } from "lodash";
 import { getInicial } from "./inicial";

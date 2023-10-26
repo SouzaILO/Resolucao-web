@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/inicial.css">
+    <link rel="stylesheet" type="text/css" href="css/alunos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Bem Vindo</title>
+    <base href="/">
+</head>
+
+<body>
+
+    <div class="page">
+        <div class="Header">
+            <div id="logo">
+                <img id="logo-head" src="../img/resolucaologo.png" alt="logo"> 
+            </div>
+            <form method="POST" action="/logout">
+                <button id="btn-sair">Desconectar</button>
+            </form>
+        </div>
+        <div class="menu-gatilho" id="menu-gatilho" onclick="menu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="menu-retratil" id="menu-retratil">
+                   
+        <ul>
+            <%if(typeof user.username != "undefined" && user.username){ %>
+                <li ><%= user.username%></li>
+            <% } %>
+            <form  action="/agenda" method="post">
+                <button class="menu-retratil-items" type="submit"><li>agenda</li></button>
+            </form>
+            <form  action="/alunos" method="post">
+                <button class="menu-retratil-items" type="submit"><li>Alunos</li></button>
+            </form>
+            <form  action="/professores" method="post">
+                <button class="menu-retratil-items" type="submit"><li>Professores</li></button>
+            </form>
+            <li>Conta</li>
+        </ul>
+
+        </nav>
+        <div class="alunos">
+            <div class="display-alunos">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Horario</th>
+                            <th scope="col">
+
+                                <select name="professor" id="professor_1">
+                                    <% for(let i = 0; i < todos_professores.length; i++){ %>
+                                    <option value="<%i%>"><%=todos_professores[i]%></option>
+                                    <% } %>
+                                </select>
+                                
+                            </th>
+                            <th scope="col">
+                                
+                                <select name="professor" id="professor_1">
+                                    <% for(let i = 0; i < todos_professores.length; i++){ %>
+                                    <option value="0"><%=todos_professores[i]%></option>
+                                    <% } %>
+                                </select>
+                                
+                            </th>
+                            <th scope="col">
+                                
+                                <select name="professor" id="professor_1">
+                                    <% for(let i = 0; i < todos_professores.length; i++){ %>
+                                    <option value="0"><%=todos_professores[i]%></option>
+                                    <% } %>
+                                </select>
+                                
+                            </th>
+                            <th scope="col">
+                                
+                                <select name="professor" id="professor_1">
+                                    <% for(let i = 0; i < todos_professores.length; i++){ %>
+                                    <option value="0"><%=todos_professores[i]%></option>
+                                    <% } %>
+                                </select>
+                                
+                            </th>
+                            <th scope="col">
+                                
+                                <select name="professor" id="professor_1">
+                                    <% for(let i = 0; i < todos_professores.length; i++){ %>
+                                    <option value="0"><%=todos_professores[i]%></option>
+                                    <% } %>
+                                </select>
+                                
+                            </th>
+                            <th scope="col">
+                                
+                                <select name="professor" id="professor_1">
+                                    <% for(let i = 0; i < todos_professores.length; i++){ %>
+                                    <option value="0"><%=todos_professores[i]%></option>
+                                    <% } %>
+                                </select>
+                                
+                            </th>
+                            <th scope="col">
+                                
+                                <select name="professor" id="professor_1">
+                                    <% for(let i = 0; i < todos_professores.length; i++){ %>
+                                    <option value="0"><%=todos_professores[i]%></option>
+                                    <% } %>
+                                </select>
+                                
+                            </th>
+                        
+                        </tr>
+                        </thead>
+                        
+                    
+                    <tbody>
+                        <% if(typeof todos_Alunos != "undefined" && todos_Alunos){ %>
+                        <tr>
+                            <th scope="row">08:00</th>
+                            <td>
+                                <select name="professor" id="professor_1">
+                                <% for(let i = 0; i < todos_Alunos.length; i++){ %>
+                                    <option value="<%i%>"><%=todos_Alunos[i]%></option>
+                                <% } %>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="professor" id="professor_1">
+                                <% for(let i = 0; i < todos_Alunos.length; i++){ %>
+                                    <option value="<%i%>"><%=todos_Alunos[i]%></option>
+                                <% } %>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="professor" id="professor_1">
+                                <% for(let i = 0; i < todos_Alunos.length; i++){ %>
+                                    <option value="<%i%>"><%=todos_Alunos[i]%></option>
+                                <% } %>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="professor" id="professor_1">
+                                <% for(let i = 0; i < todos_Alunos.length; i++){ %>
+                                    <option value="<%i%>"><%=todos_Alunos[i]%></option>
+                                <% } %>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="professor" id="professor_1">
+                                <% for(let i = 0; i < todos_Alunos.length; i++){ %>
+                                    <option value="<%i%>"><%=todos_Alunos[i]%></option>
+                                <% } %>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="professor" id="professor_1">
+                                <% for(let i = 0; i < todos_Alunos.length; i++){ %>
+                                    <option value="<%i%>"><%=todos_Alunos[i]%></option>
+                                <% } %>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="professor" id="professor_1">
+                                <% for(let i = 0; i < todos_Alunos.length; i++){ %>
+                                    <option value="<%i%>"><%=todos_Alunos[i]%></option>
+                                <% } %>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">09:00</th>
+                        </tr>
+                            <th scope="row">10:00</th>
+                        </tr>
+                            <th scope="row">11:00</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">14:00</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">15:00</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">16:00</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">17:00</th>
+                        </tr>
+                        <% } %>
+                        
+                    </tbody>
+            </div>
+
+        </div>
+
+        <div class="footer">
+        </div>
+    
+    </div>
+
+</body>
+
+<footer>
+</footer>
+<script src="../js/aluno.js"></script>
+<script src="../js/inicial.js"></script>
+</html>
