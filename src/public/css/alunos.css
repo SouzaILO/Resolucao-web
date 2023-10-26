@@ -8,8 +8,8 @@
     max-height: 90vh;
 }
 
-.alunos-btn{
-
+#alunos-add-btn{
+    flex-wrap: wrap;
     margin-top: 0.5%;
     margin-right: 1%;
     margin-left: 92%;
@@ -34,4 +34,69 @@
     background-color: #fff;
     border-radius: 5px;
     overflow-y: scroll;
+}
+
+
+#pop-add-aluno{
+
+    min-width: 500px;
+    min-height: 300px;
+    max-width: 1300px;
+    max-height: 1000px;
+    background-color: rgb(94, 127, 180);
+    border-radius: 35px;
+    position: absolute;
+    padding: 40px 40px 40px 40px;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 
+                0 6px 20px 0 rgba(0,0,0,0.19);
+
+}
+#pop-add-aluno input{
+    min-width: 300px;
+    margin-top: 20px;
+}
+
+
+#pop-edit-aluno{
+
+    min-width: 500px;
+    min-height: 300px;
+    max-width: 1300px;
+    max-height: 1000px;
+    background-color: rgb(94, 127, 180);
+    border-radius: 35px;
+    position: absolute;
+    padding: 40px 40px 40px 40px;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 
+                0 6px 20px 0 rgba(0,0,0,0.19);
+    
+
+}
+#pop-edit-aluno input{
+    min-width: 300px;
+    margin-top: 20px;
+}
+
+.form-add-aluno{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    flex-wrap: wrap;
+    min-width: 300;
+
+}
+.popup-btn-bar{
+
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 0;
+    min-height: 5%;
+    max-height: 5%;
+    border-radius: 5px;
+
 }

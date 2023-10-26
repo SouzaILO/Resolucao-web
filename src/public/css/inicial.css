@@ -8,11 +8,14 @@ body {
     height: 100vh;
     width: 100vw;
   }
-.main{
+
+.page{
     height: 100%;
     width: 100%;
+    min-width: 100%;
+    height: 888px;
     margin: auto;
-    border: 1px solid #000;
+    border: 1px 1px 1px 1px #000000 ;
     text-align: center;
     flex-direction: column;
     background-color: #9dadfa;
@@ -77,6 +80,12 @@ body {
   cursor: pointer;
 }
 
+#menu-gatilho:hover  {
+  background-color: #0c0b3a;
+  border-radius: 5px;
+  transition: 0.5s;
+}
+
 .menu-gatilho  div {
   width: 30px;
   height: 4px;
@@ -115,6 +124,8 @@ body {
 
 .menu-retratil li:hover {
 
+  font-weight: bolder;
+  font-style: italic;
 }
 
 .menu-retratil-items {

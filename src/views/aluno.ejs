@@ -4,7 +4,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/inicial.css">
+    <link rel="stylesheet" type="text/css" href="../css/inicial.css">
     <link rel="stylesheet" type="text/css" href="css/alunos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Bem Vindo</title>
@@ -12,8 +12,8 @@
 </head>
 
 <body>
-    <script src="../js/inicial.js"></script>
-    <div class="main">
+
+    <div class="page">
         <div class="Header">
             <div id="logo">
                 <img id="logo-head" src="../img/resolucaologo.png" alt="logo"> 
@@ -28,26 +28,83 @@
             <div></div>
         </div>
         <nav class="menu-retratil" id="menu-retratil">
-            <form method="POST" action="/aluno">             
+                   
         <ul>
-            <% if(typeof user != "undefined" && user){ %> 
-            <li ><%= user.Usuario%></li>
+            <%if(typeof user.username != "undefined" && user.username){ %>
+                <li ><%= user.username%></li>
             <% } %>
             <li>Agenda</li>
-            <button class="menu-retratil-items" type="submit"><li>Alunos</li></button>
+            <form  action="/alunos" method="post">
+                <button class="menu-retratil-items" type="submit"><li>Alunos</li></button>
+            </form>
             <li>Professores</li>
             <li>Conta</li>
         </ul>
-        </form>
+
         </nav>
         <div class="alunos">
-            <button class="alunos-btn" type="submit">Adicionar Aluno</button> 
+            <button id="alunos-add-btn">Adicionar Aluno</button>
+                <dialog id="pop-add-aluno">
+                    
+                        <div class="form-aluno">
+                            <div class="form-add-aluno">
+                            <form id="formAluno" method="post" action="/aluno/adicionar">
+                                <label class="form-aluno-lbl" >
+                                    Nome: <input type="text" class="form-aluno-inpt"  placeholder="nome" name="Nome" required>
+                                </label>
+                                
+
+                                <label class="form-aluno-lbl" >
+                                    Email: <input type="text" class="form-aluno-inpt"  placeholder="email" name="email" required>
+                                </label>
+                                
+
+                                <label class="form-aluno-lbl">
+                                    Endereco: <input type="text" class="form-aluno-inpt"  placeholder="endereco" name="endereco" required>
+                                </label>
+                                
+
+                                <label class="form-aluno-lbl" >
+                                    Cidade:  <input type="text" class="form-aluno-inpt"  placeholder="Cidade" name="Cidade" required>
+                                </label>
+                               
+
+                                <label class="form-aluno-lbl" >
+                                    CEP: <input type="text" class="form-aluno-inpt"  placeholder="CEP" name="CEP" required>
+                                </label>
+                                
+
+                                <label class="form-aluno-lbl" >
+                                    Telefone:<input type="text" class="form-aluno-inpt"  placeholder="Telefone" name="Telefone" required>
+                                </label>
+                                
+
+                                <label class="form-aluno-lbl" >
+                                    Escola: <input type="text" class="form-aluno-inpt"  placeholder="Escola" name="Escola" required>
+                                </label>
+                                
+
+                                <label class="form-aluno-lbl" >
+                                    Idade: <input type="text" class="form-aluno-inpt"  placeholder="Idade" name="Idade" required>
+                                </label>
+                                <div class="popup-btn-bar">
+                                    <button id="add-aluno-close" type="button" onclick=" closeModal_add_aluno()">cancelar</button>
+                                    <button id="add-aluno-send"  value="submit" >Adicionar</button>
+                                </div> 
+                                
+                            </form>
+                        </div>
+ 
+                        </div> 
+                    
+                </dialog>
             <div class="display-alunos">
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
+                            <th scope="col">Matricula</th>
                             <th scope="col">Nome</th>
+                            <th scope="col">Email</th>
                             <th scope="col">endereco</th>
                             <th scope="col">cidade</th>
                             <th scope="col">CEP</th>
@@ -60,13 +117,14 @@
                     <tbody>
                         <% if(typeof alunos != "undefined" && alunos){ %>
                         <% for(let i = 0; i < alunos.length; i++){ %>
-                        <tr>
-                            <th scope="row"><%= alunos[i].ID %></th>
+                        <tr onclick="openModal_edit_aluno(this)">
+                            <th scope="row"><%= alunos[i].Matricula %></th>
                             <td><%= alunos[i].Nome %></td>
-                            <td><%= alunos[i].Endereco %></td>
+                            <td><%= alunos[i].email %></td>
+                            <td><%= alunos[i].endereco %></td>
                             <td><%= alunos[i].Cidade %></td>
                             <td><%= alunos[i].CEP %></td>
-                            <td><%= alunos[i].Celular %></td>
+                            <td><%= alunos[i].Telefone %></td>
                             <td><%= alunos[i].Escola %></td>
                             <td><%= alunos[i].Idade %></td>
                         </tr>
@@ -74,7 +132,69 @@
                         <% } %>
                         
                     </tbody>
-                
+                    <dialog id="pop-edit-aluno">
+                    
+                        <div class="form-aluno">
+                            <div class="form-add-aluno">
+                            <form id="formDelAluno" method="post" action="/aluno/DELETAR">
+                                <input id="input-Matricula-DEL" type="text" class="form-aluno-inpt" name="Matricula" hidden>
+                            </form>
+                            <form id="formEditAluno" method="post" action="/aluno/editar">
+
+                                <label id="label-Matricula-Edit" class="form-aluno-lbl" >
+                                    Matricula:                                   
+                                </label>
+                                <input id="input-Matricula-Edit" type="text" class="form-aluno-inpt" name="Matricula" hidden>
+                                <label class="form-aluno-lbl" >
+                                    Nome: <input id="input-Nome-Edit" type="text" class="form-aluno-inpt"  placeholder="nome" name="Nome">
+                                </label>
+
+                                <label class="form-aluno-lbl" >
+                                    Email: <input id="input-Email-Edit" type="text" class="form-aluno-inpt"  placeholder="email" name="email">
+                                </label>
+                                
+
+                                <label class="form-aluno-lbl">
+                                    Endereco: <input id="input-Edc-Edit" type="text" class="form-aluno-inpt"  placeholder="endereco" name="endereco">
+                                </label>
+                                
+
+                                <label class="form-aluno-lbl" >
+                                    Cidade:  <input id="input-Cid-Edit" type="text" class="form-aluno-inpt"  placeholder="Cidade" name="Cidade">
+                                </label>
+                               
+
+                                <label class="form-aluno-lbl" >
+                                    CEP: <input id="input-CEP-Edit" type="text" class="form-aluno-inpt"  placeholder="CEP" name="CEP">
+                                </label>
+                                
+
+                                <label class="form-aluno-lbl" >
+                                    Telefone:<input id="input-Telefone-Edit" type="text" class="form-aluno-inpt"  placeholder="Telefone" name="Telefone">
+                                </label>
+                                
+
+                                <label class="form-aluno-lbl" >
+                                    Escola: <input id="input-Escola-Edit" type="text" class="form-aluno-inpt"  placeholder="Escola" name="Escola">
+                                </label>
+                                
+
+                                <label class="form-aluno-lbl" >
+                                    Idade: <input id="input-Idade-Edit" type="text" class="form-aluno-inpt"  placeholder="Idade" name="Idade">
+                                </label>
+                                <div class="popup-btn-bar">
+                                    <button id="add-aluno-close" type="button" onclick=" closeModal_edit_aluno()">cancelar</button>
+                                    <button id="add-aluno-send"  value="submit" >Salvar</button>
+                                    <button form="formDelAluno" id="add-aluno-send"  value="submit" >Deletar</button>
+                                </div> 
+                                
+                            </form>
+
+                        </div>
+ 
+                        </div> 
+                    
+                </dialog>
             </div>
 
         </div>
@@ -88,4 +208,6 @@
 
 <footer>
 </footer>
+<script src="../js/aluno.js"></script>
+<script src="../js/inicial.js"></script>
 </html>
